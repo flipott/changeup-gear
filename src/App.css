@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    /* CSS HEX */
+    --ash-gray: #c9cebdff;
+    --ash-gray-2: #b2bcaaff;
+    --xanadu: #838e83ff;
+    --granite-gray: #6c6061ff;
+    --rose-ebony: #64403eff;
+
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+p, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.hero {
+    flex: 1;
+    display: flex;
+    padding: 15px 55px;
+    font-size: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.left {
+    flex: 1 0 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    justify-content: center;
+    padding-block: 50px;
+}
+
+.left p {
+    width: 500px;
+}
+
+.left button {
+    color: white;
+    background: #B2BCAA;
+    border: none;
+    padding: 12px 35px;
+    font-size: 2.2rem;
+    border-radius: 33px;
+    cursor: pointer;
+}
+
+.left button:hover {
+    background: #90938e;
+}
+
+.right img {
+    border-radius: 33px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.guaranteed {
+    font-weight: bold;
+    font-size: 3.1rem;
+    color: #B2BCAA;
+}
+
+.right {
+    flex: 1 0 50%;
+    text-align: center;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 500px;
+}
+
+.gray {
+    background: #D9D9D9;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.newsletter {
+    background: #6C6061;
+    color: white;
+    padding: 30px 50px;
+    border-radius: 33px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+}
+
+.signup {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.signup-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.signup-section input {
+    background: #D9D9D9;
+    border: none;
+    border-radius: 33px;
+    padding: 12px;
+}
+
+.signup-section button {
+    background: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 33px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.signup-section button:hover {
+    background: #bfbfbf; 
+}
+
