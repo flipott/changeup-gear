@@ -32,21 +32,24 @@ p, h1 {
 .hero {
     flex: 1;
     display: flex;
-    padding: 15px 55px;
+    padding: 15px 0;
     font-size: 3rem;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
+    color: white;
+    position: relative;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/hero-background.jpg);
+    background-repeat: no-repeat;
+    gap: calc(5%);
 }
 
 .left {
-    flex: 1 0 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 25px;
-    justify-content: center;
-    padding-block: 50px;
+    padding-bottom: 15px;
 }
 
 .left p {
@@ -70,22 +73,19 @@ p, h1 {
 .right img {
     border-radius: 33px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 500px;
+
 }
 
 .guaranteed {
     font-weight: bold;
     font-size: 3.1rem;
-    color: #B2BCAA;
+    color: #B2BCAA; 
 }
 
 .right {
-    flex: 1 0 50%;
     text-align: center;
-}
-
-.hero img {
-    width: 100%;
-    max-width: 500px;
 }
 
 .gray {
