@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import "./App.css"
+import "./css/App.css"
 
 function App() {
   return (

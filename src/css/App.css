@@ -39,7 +39,7 @@ p, h1 {
     flex-wrap: wrap;
     color: white;
     position: relative;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/hero-background.jpg);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/hero-background.jpg);
     background-repeat: no-repeat;
     gap: calc(5%);
 }
