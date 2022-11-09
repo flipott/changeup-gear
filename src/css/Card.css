@@ -43,6 +43,7 @@
     background: #B2BCAA;
     font-weight: bold;
     color: white;
+    cursor: pointer;
 }
 
 .add-to-cart:hover {

@@ -10,7 +10,7 @@ function importAll(r) {
 export default function Card(props) {
 
     const {title, category, price, image} = props;
-    const images = importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
+    const images = importAll(require.context('../images/items', false, /\.(png|jpe?g|svg)$/));
     return (
         <div className="card">
             <img src={images[image]} />
