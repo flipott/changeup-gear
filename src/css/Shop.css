@@ -16,11 +16,16 @@
     flex-direction: column;
     gap: 15px;
     padding-inline: 55px; 
-}
-
-.sidebar a {
     color: black;
     font-size: 1.5rem;
+}
+
+.sidebar li {
+    cursor: pointer;
+}
+
+.bold {
+    font-weight: bold;
 }
 
 .item-section {
