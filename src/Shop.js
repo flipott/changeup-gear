@@ -49,7 +49,7 @@ function Shop() {
             <div className="shop--main">
                 <div className="sidebar">
                     <ul className="list-parent">
-                        <li onClick={(e) => filterItems("all", e.target)}>All Products</li>
+                        <li className="bold" onClick={(e) => filterItems("all", e.target)}>All Products</li>
                         <li onClick={(e) => filterItems("bat", e.target)}>Bats</li>
                         <li onClick={(e) => filterItems("glove", e.target)}>Gloves</li>
                         <li onClick={(e) => filterItems("ball", e.target)}>Balls</li>

@@ -7,10 +7,8 @@
     text-align: center;
     gap: 10px;
     height: 375px;
-}
-
-.card > img {
-    /* display: flex; */
+    border-radius: 33px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .item-card-title {
