@@ -49,5 +49,5 @@
     flex-wrap: wrap;
     gap: 15px;
     padding-bottom: 25px;
-    margin-left: auto;
+    justify-content: center;
 }
