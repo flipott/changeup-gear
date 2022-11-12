@@ -1,57 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import CartItem from "./components/CartItem";
 import "./css/Cart.css"
+import { Link } from "react-router-dom";
 
-const dummyCart = [
-    {
-        title: "Pitchers Power Drive",
-        category: "training",
-        price: "$199.95",
-        image: "training_7.jpg",
-        quantity: 1,
-    },
-    {
-        title: "MVP Portable Sock Screen - 7x7 feet",
-        category: "training",
-        price: "$109.95",
-        image: "training_8.jpg",
-        quantity: 3,
-    },
-    {
-        title: "MVP Portable Sock Screen - 7x7 feet",
-        category: "training",
-        price: "$109.95",
-        image: "training_8.jpg",
-        quantity: 3,
-    },
-    {
-        title: "MVP Portable Sock Screen - 7x7 feet",
-        category: "training",
-        price: "$109.95",
-        image: "training_8.jpg",
-        quantity: 3,
-    },
-    {
-        title: "MVP Portable Sock Screen - 7x7 feet",
-        category: "training",
-        price: "$109.95",
-        image: "training_8.jpg",
-        quantity: 3,
-    },
-    {
-        title: "MVP Portable Sock Screen - 7x7 feet",
-        category: "training",
-        price: "$109.95",
-        image: "training_8.jpg",
-        quantity: 3,
-    },
-]
-
-function Cart() {
-
-    const listItems = dummyCart.map((item) =>
+function Cart(props) {
+    const listItems = props.shoppingCart.map((item) =>
         <CartItem 
             title={item.title} 
             category={item.category}
@@ -59,9 +14,30 @@ function Cart() {
             image={item.image}
             quantity={item.quantity}
             key={item.image}
+            removeFromCart={props.removeFromCart}
+            adjustQuantity={props.adjustQuantity}
         />
     );
 
+    const [totalStatus, setTotalStatus] = React.useState({items: 0, total: 0})
+
+
+    useEffect(() => {
+        let tempItem = 0;
+        let tempTotal = 0;
+
+        if (props.shoppingCart.length) {
+            for (let i = 0; i < props.shoppingCart.length; i++) {
+                tempItem += props.shoppingCart[i]["quantity"];
+                tempTotal += (props.shoppingCart[i]["quantity"]) * parseFloat(props.shoppingCart[i]["price"].slice(1));
+            }
+        }
+
+        setTotalStatus({items: tempItem, total: tempTotal.toFixed(2)});
+
+    }, [props.shoppingCart])
+
+    
 
     return (
         <div className="App">
@@ -69,29 +45,40 @@ function Cart() {
             <div className="cart--main">
                 <div className="item-title">Shopping Cart</div>
                 <div className="cart">
-                    <p>{listItems.length} Items</p>
-                    <div className="cart-items">
-                        {listItems}
-                    </div>
-                    <div className="cart-options">
-                        <div className="ship-promo">
-                            <div className="shipping">
-                                <p className="cart-option-title">Shipping</p>
-                                <select><option>Expedited - $12</option></select>
+                    {totalStatus.items > 0 && (
+                        <>
+                        <p>{totalStatus.items} Item{totalStatus.items > 1 ? "s" : ""}</p>
+                        <div className="cart-items">
+                            {listItems}
+                        </div>
+                        <div className="cart-options">
+                            <div className="ship-promo">
+                                <div className="shipping">
+                                    <p className="cart-option-title">Shipping</p>
+                                    <select><option>Expedited - $12</option></select>
+                                </div>
+                                <div className="promo">
+                                    <p className="cart-option-title">Promo Code</p>
+                                    <input type="text" maxLength={5} />
+                                </div>
                             </div>
-                            <div className="promo">
-                                <p className="cart-option-title">Promo Code</p>
-                                <input type="text" maxLength={5} />
+                            <div className="total-checkout">
+                                <div className="total">
+                                    <p className="cart-option-title">Total</p>
+                                    <p className="total-price">${totalStatus.total}</p>
+                                </div>
+                                <button className="add-to-cart">Checkout</button>
                             </div>
                         </div>
-                        <div className="total-checkout">
-                            <div className="total">
-                                <p className="cart-option-title">Total</p>
-                                <p className="total-price">$999.99</p>
-                            </div>
-                            <button className="add-to-cart">Checkout</button>
+                        </>
+                        )
+                    }       
+                    {totalStatus.items <= 0 && (
+                        <div className="no-items">
+                            <h2>You have no items in your cart!</h2>
+                            <button className="back-to-shop"><Link to="/shop">Shop Now</Link></button>
                         </div>
-                    </div>
+                    )}
                 </div>
             </div>
             <Footer />

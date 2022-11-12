@@ -11,6 +11,15 @@ export default function CartItem(props) {
 
     const {title, category, price, image, quantity} = props;
     const images = importAll(require.context('../images/items', false, /\.(png|jpe?g|svg)$/));
+
+    function checkDisabled(operator) {
+        if (operator === "-") {
+            return quantity === 1 ? true : false;
+        } else {
+            return quantity >= 99 ? true : false;
+        }
+    }
+
     return (
         <div className="cart-item">
             <img src={images[image]} />
@@ -18,13 +27,13 @@ export default function CartItem(props) {
                 <p className="cart-item-category">{category}</p>
                 <p className="cart-item-title">{title}</p>
             </div>
-            <p className="cart-item-price">{price}</p>
+            <p className="cart-item-price">{price}/ea</p>
             <div className="cart-quantity-row">
-                <button>-</button>
-                <input type="text" maxLength={2} value={quantity} />
-                <button>+</button>
+                <button onClick={() => props.adjustQuantity(title, "-")} disabled={checkDisabled("-")}>-</button>
+                <p>{quantity}</p>
+                <button onClick={() => props.adjustQuantity(title, "+")} disabled={checkDisabled("+")}>+</button>
             </div>
-            <button>x</button>
+            <button onClick={() => props.removeFromCart(title)}>x</button>
         </div>
     )
 }

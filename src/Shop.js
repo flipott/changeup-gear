@@ -6,12 +6,20 @@ import "./css/Shop.css";
 import Data from "./components/Data";
 
 
-function Shop() {
+function Shop(props) {
 
     const itemArray = Data.items;
     const [items, setItems] = React.useState(itemArray);
     const [currentSelection, setCurrentSelection] = React.useState("All Products");
 
+    const checkInCart = (item) => {
+        for (let i = 0; i<props.shoppingCart.length; i++) {
+            if (props.shoppingCart[i]["title"] === item.title) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     const listItems = items.map((item) =>
         <Card 
@@ -20,6 +28,8 @@ function Shop() {
         price={item.price}
         image={item.image}
         key={item.image}
+        addToCart={props.addToCart}
+        inCart={checkInCart(item)}
         />
     );
 
