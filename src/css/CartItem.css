@@ -33,6 +33,18 @@
     text-align: center;
 }
 
+.cart-quantity-row {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-quantity-row > p {
+    width: 20px;
+    text-align: center;
+}
+
 .cart-item-price {
     font-size: 1.1rem;
 }

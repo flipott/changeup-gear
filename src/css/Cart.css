@@ -73,3 +73,25 @@
     font-weight: bold;
     font-size: 1.1rem;
 }
+
+.no-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px
+}
+
+.back-to-shop {
+    border: none;
+    border-radius: 33px;
+    padding: 8px 12px;
+    background:  #B2BCAA;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.back-to-shop:hover {
+    background: #bfbfbf;
+}
