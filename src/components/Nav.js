@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Nav() {
     return (
         <div className="nav">
-            <h1><Link to="/">Changeup Gear</Link></h1>
+            <Link to="/"><img src="logo.svg" alt="Changeup Gear"></img></Link>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/shop">Shop</Link></li>

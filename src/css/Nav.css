@@ -6,9 +6,8 @@
     padding: 12px 55px;
 }
 
-h1 {
-    font-size: 2rem;
-    width: 100%;
+.nav img {
+    height: 50px;
 }
 
 .nav > ul {
