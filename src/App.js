@@ -28,7 +28,7 @@ function App() {
           <div className="signup-section">
             <input type="text" placeholder="First name" />
             <input type="email" placeholder="Email" />
-            <button onClick={() => window.alert("This is a static site meant for demonstration purposes only. :)")}>Sign up!</button>
+            <button onClick={() => window.alert("This is a static site meant for demonstration purposes only!")}>Sign up!</button>
           </div>
         </div>
       </div>
