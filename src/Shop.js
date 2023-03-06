@@ -45,10 +45,18 @@ function Shop(props) {
             if (mobileList.children[i].classList.contains("bold")) {
                 mobileList.children[i].classList.remove("bold");
             };
-
         };
 
         event.classList.add("bold");
+
+        for (let i = 0; i < categoryList.children.length; i++) {
+            if (categoryList.children[i].innerText === event.innerText) {
+                categoryList.children[i].classList.add("bold");
+            }
+            if (mobileList.children[i].innerText === event.innerText) {
+                mobileList.children[i].classList.add("bold");
+            }
+        };
 
         if (category === "all") {
             setItems(itemArray);
