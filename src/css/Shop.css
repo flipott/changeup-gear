@@ -50,8 +50,7 @@
     display: flex;  
     flex-flow: row wrap;
     gap: 25px;
-    margin-left: 25px;
-    margin-bottom: 25px;
+    margin: 25px;
     justify-content: center;
 }
 
@@ -59,14 +58,9 @@
     max-width: 2000px;
 }
 
-.mobile-filter {
-    display: none;
+.filter-container {
     position: relative;
-}
-
-#mobile-filter-menu {
     display: none;
-    position: absolute;
 }
 
 @media (max-width: 915px) {
@@ -78,49 +72,66 @@
         display: none;
     }
 
-    .mobile-filter { 
+    .filter-container {
+        display: block;
+    }
+
+    .filter-container button {
+        padding: 8px;
+        background: #B2BCAA;
+        width: 100%;
+        border: none;
+        font-size: 1rem;
+    }
+
+    .filter-container button img {
+        height: 22px;
+    }
+
+    .filter-container button:hover {
+        cursor: pointer;
+    }
+
+    .filter-dropdown {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        perspective: 1000px;
         display: flex;
         flex-direction: column;
-        width: 100%;
-        padding: 0;
-    }
-
-    .mobile-filter button {
-        padding: 5px;
-        background: #B2BCAA;
-        border: none;
-        cursor: pointer;
-        font-size: 1.5rem;
-    }
-
-    #mobile-filter-menu {
-        transition: all .3s ease-in-out;
-        list-style: none;
-        z-index: 5;
-        top: 0;
-        left: 0;
-        transform: translateY(0)
-    }
-
-    #mobile-filter-menu.show-filter-menu {
-        display: flex;
-        color: black;
-        width: 100%;
         padding: 0;
         margin: 0;
-        gap: 0;
-        text-align: center;
-        transform: translateY(80%);
     }
 
-    #mobile-filter-menu.show-filter-menu li {
-        padding: 5px;
+    .filter-dropdown li {
+        padding: 8px 0;
         background: #B2BCAA;
+        width: 100%;
+        list-style: none;
+        text-align: center;
     }
 
-    #mobile-filter-menu.show-filter-menu li:hover,
-    .mobile-filter button:hover {
+    .filter-dropdown li:hover {
         background: #7a8074;
         color: white;
+        cursor: pointer;
     }
+
+    .animate-dropdown {
+        animation: scaleDown 300ms ease-in-out forwards;
+        transform-origin: top center;
+    }
+
+    @keyframes scaleDown {
+        0% {
+            transform: scaleY(0);
+        }
+        80% {
+            transform: scaleY(1.1);
+        }
+        100% {
+            transform: scaleY(1);
+        }
+    }
+
 }
