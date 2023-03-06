@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/changeup-gear/static/css/main.791b8b95.css",
-    "main.js": "/changeup-gear/static/js/main.1deb63f8.js",
+    "main.js": "/changeup-gear/static/js/main.801b6a44.js",
     "static/media/hero-background.jpg": "/changeup-gear/static/media/hero-background.11036506c6957bdca295.jpg",
     "static/media/hero.jpg": "/changeup-gear/static/media/hero.73b034d3081a20f36090.jpg",
     "static/media/training_8.jpg": "/changeup-gear/static/media/training_8.ef45fb287c9a948c2312.jpg",
@@ -45,10 +45,10 @@
     "static/media/bat_9.jpg": "/changeup-gear/static/media/bat_9.9ebb1a85f96d01313b77.jpg",
     "index.html": "/changeup-gear/index.html",
     "main.791b8b95.css.map": "/changeup-gear/static/css/main.791b8b95.css.map",
-    "main.1deb63f8.js.map": "/changeup-gear/static/js/main.1deb63f8.js.map"
+    "main.801b6a44.js.map": "/changeup-gear/static/js/main.801b6a44.js.map"
   },
   "entrypoints": [
     "static/css/main.791b8b95.css",
-    "static/js/main.1deb63f8.js"
+    "static/js/main.801b6a44.js"
   ]
 }
