@@ -6,23 +6,25 @@
 .sidebar {
     width: 350px;
     padding-top: 25px;
-    background: #B2BCAA;
+    background: #404040;
     box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.sidebar > ul {
+.sidebar > ul,
+.mobile-filter > ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding-inline: 55px; 
-    color: black;
+    color: white;
     font-size: 1.5rem;
     position: sticky;
     top: 25px;
 }
 
-.sidebar li {
+.sidebar li,
+.mobile-filter li {
     cursor: pointer;
 }
 
@@ -45,9 +47,80 @@
 }
 
 .items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding-bottom: 25px;
+    display: flex;  
+    flex-flow: row wrap;
+    gap: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
     justify-content: center;
+}
+
+.App {
+    max-width: 2000px;
+}
+
+.mobile-filter {
+    display: none;
+    position: relative;
+}
+
+#mobile-filter-menu {
+    display: none;
+    position: absolute;
+}
+
+@media (max-width: 915px) {
+    .shop--main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .mobile-filter { 
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .mobile-filter button {
+        padding: 5px;
+        background: #B2BCAA;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    #mobile-filter-menu {
+        transition: all .3s ease-in-out;
+        list-style: none;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        transform: translateY(0)
+    }
+
+    #mobile-filter-menu.show-filter-menu {
+        display: flex;
+        color: black;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        gap: 0;
+        text-align: center;
+        transform: translateY(80%);
+    }
+
+    #mobile-filter-menu.show-filter-menu li {
+        padding: 5px;
+        background: #B2BCAA;
+    }
+
+    #mobile-filter-menu.show-filter-menu li:hover,
+    .mobile-filter button:hover {
+        background: #7a8074;
+        color: white;
+    }
 }
