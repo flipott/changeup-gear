@@ -76,4 +76,8 @@ input[type=number] {
     .items {
         margin: 12px !important;
     }
+
+    .no-items h2 {
+        text-align: center;
+    }
 }
