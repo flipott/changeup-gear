@@ -20,24 +20,24 @@ function Cart(props) {
     );
 
     const [totalStatus, setTotalStatus] = React.useState({items: 0, total: 0})
+    const [shippingPrice, setShippingPrice] = React.useState(12);
 
 
     useEffect(() => {
         let tempItem = 0;
         let tempTotal = 0;
-
+    
         if (props.shoppingCart.length) {
             for (let i = 0; i < props.shoppingCart.length; i++) {
                 tempItem += props.shoppingCart[i]["quantity"];
                 tempTotal += (props.shoppingCart[i]["quantity"]) * parseFloat(props.shoppingCart[i]["price"].slice(1));
             }
         }
-
-        setTotalStatus({items: tempItem, total: tempTotal.toFixed(2)});
-
-    }, [props.shoppingCart])
-
     
+        tempTotal += parseInt(shippingPrice);    
+        setTotalStatus({items: tempItem, total: tempTotal.toFixed(2)});
+    
+    }, [props.shoppingCart, shippingPrice]);    
 
     return (
         <div className="App">
@@ -55,7 +55,10 @@ function Cart(props) {
                             <div className="ship-promo">
                                 <div className="shipping">
                                     <p className="cart-option-title">Shipping</p>
-                                    <select><option>Expedited - $12</option></select>
+                                    <select onChange={(e) => setShippingPrice(e.target.value)}>
+                                        <option value={12}>Expedited - $12</option>
+                                        <option value={8}>Economy - $8</option>
+                                    </select>
                                 </div>
                                 <div className="promo">
                                     <p className="cart-option-title">Promo Code</p>
@@ -67,7 +70,7 @@ function Cart(props) {
                                     <p className="cart-option-title">Total</p>
                                     <p className="total-price">${totalStatus.total}</p>
                                 </div>
-                                <button className="add-to-cart">Checkout</button>
+                                <button className="add-to-cart" onClick={() => window.alert("This is a static site meant for demonstration purposes only!")}>Checkout</button>
                             </div>
                         </div>
                         </>
