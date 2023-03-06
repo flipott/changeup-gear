@@ -22,6 +22,7 @@ export default function CartItem(props) {
 
     return (
         <div className="cart-item">
+            <button className="delete-mobile" onClick={() => props.removeFromCart(title)}><img src="trash.svg" /></button>
             <img src={images[image]} />
             <div className="cart-item-description">
                 <p className="cart-item-category">{category}</p>
@@ -29,11 +30,11 @@ export default function CartItem(props) {
             </div>
             <p className="cart-item-price">{price}/ea</p>
             <div className="cart-quantity-row">
-                <button onClick={() => props.adjustQuantity(title, "-")} disabled={checkDisabled("-")}>-</button>
+                <button className="quantity-adjust" onClick={() => props.adjustQuantity(title, "-")} disabled={checkDisabled("-")}>-</button>
                 <p>{quantity}</p>
-                <button onClick={() => props.adjustQuantity(title, "+")} disabled={checkDisabled("+")}>+</button>
+                <button className="quantity-adjust" onClick={() => props.adjustQuantity(title, "+")} disabled={checkDisabled("+")}>+</button>
             </div>
-            <button onClick={() => props.removeFromCart(title)}>x</button>
+            <button className="delete-normal" onClick={() => props.removeFromCart(title)}><img src="trash.svg" /></button>
         </div>
     )
 }
