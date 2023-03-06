@@ -65,3 +65,15 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield;
 }
+
+
+@media (max-width: 585px) {
+    .card img {
+        height: 75px;
+        width: 75px;
+    }
+
+    .items {
+        margin: 12px !important;
+    }
+}
