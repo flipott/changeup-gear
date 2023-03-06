@@ -73,9 +73,9 @@ function Shop(props) {
                         <li onClick={(e) => filterItems("accessory", e.target)}>Accessories</li>
                     </ul>
                 </div>
-                <div className="mobile-filter">
-                    <button onClick={() => setShowFilterMenu(prevValue => !prevValue)}>{showFilterMenu ? <>Hide Filter</> : <>Show Filter</>}</button>
-                    <ul id="mobile-filter-menu" className={showFilterMenu ? "show-filter-menu list-mobile" : "list-mobile"}>
+                <div className="filter-container">
+                    <button onClick={() => setShowFilterMenu(prevVal => !prevVal)}><img src="filter.svg" /></button>
+                    <ul className="filter-dropdown animate-dropdown list-mobile" style={{ display: showFilterMenu ? "flex" : "none" }}>
                         <li className="bold" onClick={(e) => { setShowFilterMenu(false); filterItems("all", e.target); }}>All Products</li>                    
                         <li onClick={(e) => { setShowFilterMenu(false); filterItems("bat", e.target); }}>Bats</li>                    
                         <li onClick={(e) => { setShowFilterMenu(false); filterItems("glove", e.target); }}>Gloves</li>                    
@@ -96,5 +96,7 @@ function Shop(props) {
         </div>
     )
 }
+
+
 
 export default Shop;
