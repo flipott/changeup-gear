@@ -9,7 +9,7 @@ export default function Nav() {
     return (
         <div className="nav">
             <div>
-                <Link to="/"><img src="logo.png" alt="Changeup Gear"></img></Link>
+                <Link to="/"><img src={process.env.PUBLIC_URL + "logo.png"} alt="Changeup Gear"></img></Link>
                 <ul className="desktop-links">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/shop">Shop</Link></li>
