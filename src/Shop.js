@@ -11,6 +11,7 @@ function Shop(props) {
     const itemArray = Data.items;
     const [items, setItems] = React.useState(itemArray);
     const [currentSelection, setCurrentSelection] = React.useState("All Products");
+    const [showFilterMenu, setShowFilterMenu] = React.useState(false);
 
     const checkInCart = (item) => {
         for (let i = 0; i<props.shoppingCart.length; i++) {
@@ -35,12 +36,16 @@ function Shop(props) {
 
     const filterItems = (category, event) => {
         setCurrentSelection(event.textContent);
-
         const categoryList = document.querySelector(".list-parent");
+        const mobileList = document.querySelector(".list-mobile")
         for (let i = 0; i < categoryList.children.length; i++) {
             if (categoryList.children[i].classList.contains("bold")) {
                 categoryList.children[i].classList.remove("bold");
             };
+            if (mobileList.children[i].classList.contains("bold")) {
+                mobileList.children[i].classList.remove("bold");
+            };
+
         };
 
         event.classList.add("bold");
@@ -66,6 +71,18 @@ function Shop(props) {
                         <li onClick={(e) => filterItems("apparel", e.target)}>Apparel</li>
                         <li onClick={(e) => filterItems("training", e.target)}>Training Gear</li>
                         <li onClick={(e) => filterItems("accessory", e.target)}>Accessories</li>
+                    </ul>
+                </div>
+                <div className="mobile-filter">
+                    <button onClick={() => setShowFilterMenu(prevValue => !prevValue)}>{showFilterMenu ? <>Hide Filter</> : <>Show Filter</>}</button>
+                    <ul id="mobile-filter-menu" className={showFilterMenu ? "show-filter-menu list-mobile" : "list-mobile"}>
+                        <li className="bold" onClick={(e) => { setShowFilterMenu(false); filterItems("all", e.target); }}>All Products</li>                    
+                        <li onClick={(e) => { setShowFilterMenu(false); filterItems("bat", e.target); }}>Bats</li>                    
+                        <li onClick={(e) => { setShowFilterMenu(false); filterItems("glove", e.target); }}>Gloves</li>                    
+                        <li onClick={(e) => { setShowFilterMenu(false); filterItems("ball", e.target); }}>Balls</li>                    
+                        <li onClick={(e) => { setShowFilterMenu(false); filterItems("apparel", e.target); }}>Apparel</li>                    
+                        <li onClick={(e) => { setShowFilterMenu(false); filterItems("training", e.target); }}>Training Gear</li>                    
+                        <li onClick={(e) => { setShowFilterMenu(false); filterItems("accessory", e.target); }}>Accessories</li>                    
                     </ul>
                 </div>
                 <div className="item-section">
