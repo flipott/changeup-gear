@@ -74,10 +74,11 @@
 
     .filter-container {
         display: block;
+        font-size: 1.2rem;
     }
 
     .filter-container button {
-        padding: 8px;
+        padding: 12px;
         background: #B2BCAA;
         width: 100%;
         border: none;
@@ -104,7 +105,7 @@
     }
 
     .filter-dropdown li {
-        padding: 8px 0;
+        padding: 12px 0;
         background: #B2BCAA;
         width: 100%;
         list-style: none;
